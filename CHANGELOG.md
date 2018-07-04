@@ -6,7 +6,19 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## 0.0.1 - 2018-06-30
+## [1.1.0] - 2018-07-04
+### Added
+- onKeyCode handler for constructing handlers with abritrary keycodes
+- onEnter handler
+
+## Changed
+- Improved the examples in the documentation
+
+### Fixed
+- Corrected version number of first version in CHANGELOG
+- Fixed some typos in the documentation
+
+## 1.0.0 - 2018-06-30
 ### Added
 - onEnterSend handler
 - Working example of onEnterSend handler
@@ -14,4 +26,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - CHANGELOG
 - MIT license
 
-[Unreleased]: https://github.com/kmbn/elm-hotkeys/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/kmbn/elm-hotkeys/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/kmbn/elm-hotkeys/compare/1.0.0...1.1.0
