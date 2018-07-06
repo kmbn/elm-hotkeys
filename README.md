@@ -1,8 +1,9 @@
 # elm-hotkeys
 
 [![MIT License](https://img.shields.io/github/license/kmbn/elm-hotkeys.svg?style=flat-square)](https://raw.githubusercontent.com/kmbn/elm-hotkeys/master/LICENSE)
+[![Travis](https://img.shields.io/travis/kmbn/elm-hotkeys.svg?style=flat-square)](https://travis-ci.org/kmbn/elm-hotkeys)
 
-Event handlers for sending content and triggering actions based on keypresses.
+Event handlers for sending content and triggering actions with keypresses.
 
 ## Install
 ```
