@@ -6,25 +6,37 @@
 Event handlers for sending content and triggering actions with keypresses.
 
 ## Install
-```
+```bash
 elm package install kmbn/elm-hotkeys
 ```
 
 ## Import
-```
+```elm
 import Hotkeys
     exposing
-        ( onKeyCode
-        , onEnter
+        ( onEnter
         , onEnterSend
+        , onKeyCode
         )
 ```
 
 ## Use
-```
-input [ onKeyCode 13 EnterWasPressed ] []
-input [ onEnter EnterWasPressed ] []
-input [ placeholder "Enter new content", onEnterSend NewContent ] []
+```elm
+import Html exposing (div, input)
+import Hotkeys exposing (onEnter, onEnterSend, onKeyCode)
+
+
+type Msg
+    = EnterWasPressed
+    | NewContent
+
+
+html =
+    div []
+        [ input [ onKeyCode 13 EnterWasPressed ] []
+        , input [ onEnter EnterWasPressed ] []
+        , input [ placeholder "Enter new content", onEnterSend NewContent ] []
+        ]
 ```
 
 See `../examples/onEnterSend.elm` for a working example of `onEnterSend`.
