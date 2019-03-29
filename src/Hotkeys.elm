@@ -17,6 +17,7 @@ module Hotkeys exposing
 import Html
 import Html.Events
 import Json.Decode
+import String
 
 
 {-| Construct an event handler for any keycode. Send a Msg when the given key
@@ -40,7 +41,7 @@ onKeyCode expectedCode msg =
                 Json.Decode.succeed msg
 
             else
-                Json.Decode.fail ("not " ++ toString expectedCode)
+                Json.Decode.fail ("not " ++ String.fromInt expectedCode)
     in
     Html.Events.on "keydown"
         (Json.Decode.andThen isExpectedCode Html.Events.keyCode)
