@@ -1,9 +1,8 @@
-module Hotkeys
-    exposing
-        ( onKeyCode
-        , onEnter
-        , onEnterSend
-        )
+module Hotkeys exposing
+    ( onKeyCode
+    , onEnter
+    , onEnterSend
+    )
 
 {-| Event handlers for sending content and triggering actions with keypresses.
 
@@ -23,12 +22,13 @@ import Json.Decode
 {-| Construct an event handler for any keycode. Send a Msg when the given key
 is pressed.
 
-(You can use [<http://keycode.info>](http://keycode.info) to find the keycode
+(You can use <http://keycode.info> to find the keycode
 for a given key.)
 
 Examples:
 
     input [ onKeyCode 13 EnterWasPressed ] []
+
     input [ onKeyCode 17 ControlWasPressed ] []
 
 -}
@@ -38,11 +38,12 @@ onKeyCode expectedCode msg =
         isExpectedCode currentCode =
             if currentCode == expectedCode then
                 Json.Decode.succeed msg
+
             else
                 Json.Decode.fail ("not " ++ toString expectedCode)
     in
-        Html.Events.on "keydown"
-            (Json.Decode.andThen isExpectedCode Html.Events.keyCode)
+    Html.Events.on "keydown"
+        (Json.Decode.andThen isExpectedCode Html.Events.keyCode)
 
 
 {-| Send a Msg when enter is pressed. This is a convenience function that
@@ -51,6 +52,7 @@ wraps `onKeyCode`.
 Examples:
 
     input [ placeholder "Enter example", onEnter CheckExample ] []
+
     input [ placeholder "Enter example", onEnter (Update example.id) ] []
 
 -}
@@ -81,8 +83,9 @@ onEnterSend msg =
         isEnter code =
             if code == 13 then
                 Json.Decode.map msg Html.Events.targetValue
+
             else
                 Json.Decode.fail "not ENTER"
     in
-        Html.Events.on "keydown"
-            (Json.Decode.andThen isEnter Html.Events.keyCode)
+    Html.Events.on "keydown"
+        (Json.Decode.andThen isEnter Html.Events.keyCode)
